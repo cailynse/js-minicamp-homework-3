@@ -29,38 +29,62 @@ function invokeMethod(object, method) {
 	//method is a string that contains the name of a method on the object
 	//invoke this method
 	//nothing needs to be returned
+	object[method]();
+
 }
 
 function multiplyMysteryNumberByFive(mysteryNumberObject) {
 	//mysteryNumberObject has a property called mysteryNumber
 	//multiply the mysteryNumber property by 5 and return the product
+	var num = mysteryNumberObject.mysteryNumber;
+	return num * 5;
 }
 
 function deleteProperty(object, property) {
 	//remove the property from the object
 	//return the object
+	delete object[property];
+	return object;
 }
 
 function newUser(name, email, password) {
 	//create a new object with properties matching the arguments passed in.
 	//return the new object
+	var person = {
+		name: name,
+		email: email,
+		password: password
+	};
+	return person;
 }
 
 function hasEmail(user) {
 	//return true if the user has a value for the property 'email'
 	//otherwise return false
+	if (user.email) {
+		return true;
+	}
+	return false;
 }
 
 function hasProperty(object, property) {
 	//return true if the object has the value of the property argument
 	//property is a string
 	//otherwise return false
+	if (object.hasOwnProperty(property)) {
+		return object[property];
+	}
+	return false;
 }
 
 function verifyPassword(user, password) {
 	//check to see if the provided password matches the password property on the user object
 	//return true if they match
 	//otherwise return false
+	if (user.password === password) {
+		return true;
+	}
+	return false;
 }
 
 function updatePassword(user, newPassword) {
